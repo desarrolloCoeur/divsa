@@ -1,0 +1,12 @@
+---
+
+const {post} = Astro.props 
+---
+<div class="border-[1px] border-accent rounded-md">
+    <img src={post.data.image.url} alt={post.data.image.alt} class="h-[20rem] object-cover w-full rounded-tl-md rounded-tr-md">
+    <div class="p-5">
+        <h4 class="pb-3">{post.data.title}</h4>
+        <p class="text-base pb-3">{post.data.description}</p>
+        <a href={`/blog/${post.slug}`}>Ver más</a>
+    </div>
+</div>

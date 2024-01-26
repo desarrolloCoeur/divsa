@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import BlogPost from "./BlogPost.astro";
+const allPosts = await getCollection("posts")
+
+
+---
+
+<div class="mx-5">
+    <div class="max-w-7xl mx-auto mt-16">
+        <h2 class="mb-6">Nuestro <span class="text-accent"> blog</span></h2>
+        <div class="swiper mySwiper4">
+            <div class="swiper-wrapper">   
+        
+        {
+            allPosts.map((post) => { 
+                return(
+                <div class="swiper-slide">
+                    
+                <BlogPost post={post}/>
+                </div>
+
+            ) })
+
+        }
+            </div>
+        </div>
+    </div>
+</div>
