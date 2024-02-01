@@ -94,29 +94,28 @@ const partners = [
         <div class=" lg:hidden">
             {partners.map((p) => (
                 <div class="mb-5 relative">
-                    <div class={`h-[32rem] w-full lg:w-1/2 bg-cover relative aspect-square px-14 bg-right flex flex-col justify-end`} style={`background-image: url(${p.img})`}>
+                    <div class={`h-[32rem] w-full lg:w-1/2 bg-cover relative aspect-square px-1 bg-right flex flex-col justify-end`} style={`background-image: url(${p.img})`}>
                     <div class="">
 
                         <div
-                            style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
-                            class="swiper mySwiper2"
+                            style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff "
+                            class="swiper mySwiper2 "
                         >
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide flex h-auto items-center justify-center w-full">
+                            <div class="swiper-wrapper overflow-x-visible h-[23rem]">
+                                <div class="swiper-slide flex h-auto items-center justify-center w-full px-12">
                                     <div class={`z-10 `}>
                                         <img class="w-28 mx-auto z-10" src={p.logo} >
                                         <h3 class="text-center z-10 text-[#fff] mt-4 text-xl">{p.title}</h3>
                                         <p class="text-[#fff] z-10 text-center mt-5 text-sm">Desde: {p.from}</p>
-
                                     </div>
                                 </div>
-                                <div class="swiper-slide flex h-auto items-center justify-center w-full">
+                                <div class="swiper-slide flex h-auto items-center justify-center w-full px-10">
                                     <p class={`text-[#fff] z-10 text-center mt-2 transition-all text-lg`}>{p.p}</p>
                                 </div>
 
                             </div>
-                            <div class="swiper-button-next top-[50px]"></div>
-                            <div class="swiper-button-prev top-[50px]"></div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
                         </div>
                     </div>
                     <div class="absolute right-0 top-0 left-0 bottom-0 bg-gradient"></div>
