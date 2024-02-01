@@ -9,20 +9,19 @@ const allPosts = await getCollection("posts")
 <div class="mx-5">
     <div class="max-w-7xl mx-auto mt-16">
         <h2 class="mb-6">Nuestro <span class="text-accent"> blog</span></h2>
-        <div class="swiper mySwiper4">
+            <div class="swiper mySwiper5" style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff">
             <div class="swiper-wrapper">   
-        
         {
             allPosts.map((post) => { 
                 return(
                 <div class="swiper-slide border-[1px] border-accent rounded-md h-auto">
                     <BlogPost post={post}/>
                 </div>
-
-            ) })
-
+            )})
         }
             </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
     </div>
 </div>

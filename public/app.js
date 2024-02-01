@@ -13,8 +13,8 @@ var swiper3 = new Swiper(".mySwiper3", {
   slidesPerView: 3,
   spaceBetween: 25,
   navigation: {
-    nextEl: ".swiper-button-next-2",
-    prevEl: ".swiper-button-prev-2",
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
   },
   breakpoints: {
     380 : {
@@ -33,8 +33,8 @@ const swiper4 = new Swiper(".mySwiper4",{
   slidesPerView: 1,
   spaceBetween: 25,
   navigation: {
-    nextEl: ".swiper-button-next-3",
-    prevEl: ".swiper-button-prev-3",
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
   },
   breakpoints: {
     380 : {
@@ -48,6 +48,47 @@ const swiper4 = new Swiper(".mySwiper4",{
     }
   }
 })
+
+const swiper5 = new Swiper(".mySwiper5",{
+  slidesPerView: 1,
+  spaceBetween: 25,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {
+    380 : {
+      slidesPerView: 1
+    },
+    600 : {
+      slidesPerView: 2
+    },
+    900: {
+      slidesPerView: 3
+    }
+  }
+})
+
+var swiper6 = new Swiper(".mySwiper6", {
+  loop: true,
+  spaceBetween: 10,
+  slidesPerView: 4,
+  freeMode: true,
+});
+
+var swiper7 = new Swiper(".mySwiper7", {
+  loop: true,
+  spaceBetween: 0,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  thumbs: {
+    swiper: swiper6,
+  },
+});
+
+
 
 let mezclaContainer = document.querySelector('.mezcla');
 let pMezcla = document.querySelector('.mezcla-p')
@@ -95,14 +136,19 @@ if(dpContainer){
 const btnMobile = document.querySelector("#btn-menu");
 const menuMobile = document.querySelector("#mobile-menu");
 const closeMenu = document.querySelector("#close-menu");
+const linksNav = document.querySelectorAll('#mobile-menu a')
 
-// Abrir el menú
+linksNav.forEach((item) => {
+  item.addEventListener("click", (e) => {
+    menuMobile.classList.toggle("hidden")
+  })
+})
+
 btnMobile.addEventListener("click", (e) => {
   e.preventDefault();
   menuMobile.classList.toggle("hidden");
 });
 
-// Cerrar el menú
 closeMenu.addEventListener("click", (e) => {
   e.preventDefault();
   menuMobile.classList.add("hidden");
@@ -110,16 +156,46 @@ closeMenu.addEventListener("click", (e) => {
 
 
 
-// Función para verificar si el elemento está en la ventana visible
+const galleryes = ["experiencia"]
+
+galleryes.map((g) => {
+  const classGallery =  "#close-popup-"+g;
+  const closeBtn = document.querySelector(classGallery)
+
+  const popupClass = "#popup-"+g;
+  const popUp = document.querySelector(popupClass)
+
+  const btnClass = "#btn-popup-"+g;
+  const btnPopup = document.querySelector(btnClass)
+
+  closeBtn.addEventListener("click", (e) => {
+    popUp.classList.remove("fixed")
+    popUp.classList.add("hidden")
+  })
+
+
+  btnPopup.addEventListener("click", (e)=> {
+    e.preventDefault();
+    popUp.classList.remove("hidden")
+    popUp.classList.add("fixed")
+  })
+
+})
+
+
+
+//Contadores
+
 function isElementInViewport(el) {
   const rect = el.getBoundingClientRect();
   return (
     rect.top >= 0 &&
-    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.left >= 0 &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
   );
 }
 
-// Función para activar el contador cuando la sección está en la vista
 function activateCounter() {
   const num = document.querySelectorAll(".num");
   const interval = 1500;
@@ -139,17 +215,15 @@ function activateCounter() {
   });
 }
 
-// Función para manejar el evento de scroll
 function handleScroll() {
   const contadoresSection = document.getElementById("contadores");
 
   if (isElementInViewport(contadoresSection)) {
-    // La sección está en la vista, activar el contador
     activateCounter();
-    // Eliminar el evento de scroll después de activar el contador si solo quieres que se active una vez
     window.removeEventListener("scroll", handleScroll);
   }
 }
 
-// Agregar un evento de scroll para verificar cuando la sección está en la vista
 window.addEventListener("scroll", handleScroll);
+
+window.addEventListener("resize", handleScroll);

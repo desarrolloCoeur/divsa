@@ -1,0 +1,48 @@
+---
+const { data } = Astro.props;
+const {name} = Astro.props;
+---
+<div class={`hidden top-0 bottom-0 right-0 left-0 z-[99] bg-[rgba(0,0,0,.5)]`} id={`popup-${name}`}>
+    <div class="flex justify-center items-center h-full px-5">
+        <div class="bg-[#fff] rounded-md w-full max-w-[1200px] relative">
+            <button class="absolute rounded-full z-10 right-[-18px] top-[-20px] py-2 px-4" id={`close-popup-${name}`}>X</button>
+            <div
+                style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+                class="swiper mySwiper7 h-[30rem]"
+            >
+                <div class="swiper-wrapper">
+                    {
+                        data.map((e) => {
+                            return(
+                                    <div class="swiper-slide">
+                                        <img
+                                            src={e} class="object-cover h-full w-full"
+                                        />
+                                    </div>
+                            )
+                        })
+                    }
+                    
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+            <div class="swiper mySwiper6 h-[6rem] md:h-[10rem]">
+                <div class="swiper-wrapper">
+                    {
+                        data.map((e) => {
+                            return(
+                                <div class="swiper-slide">
+                                    <img
+                                        src={e} class="object-cover h-full w-full"
+                                    />
+                                </div>
+                        )
+                        })
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

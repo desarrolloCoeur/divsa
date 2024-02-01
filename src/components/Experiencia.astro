@@ -1,5 +1,7 @@
 ---
+import PopupGallery from "./PopupGallery.astro";
 
+const gallery = ["/16.jpg","/60.jpg","/63.jpg","/avant.jpg","/aruma-residencial.jpg"]
 ---
 <div class="px-5" id="experiencia">
     <div class="max-w-7xl mx-auto mt-16  mb-10">
@@ -24,5 +26,7 @@
             <div class="swiper-button-prev"></div>
         </div>
     </div>
-    <a class="bg-accent text-[#fff] rounded-md px-4 py-2 text-2xl uppercase block mx-auto w-fit font-[Inter] transition-colors hover:bg-main" href="#"><i class="fa-solid fa-image text-[#fff] pr-2   "> </i>  Ver Galería</a>
+    <a class="bg-accent text-[#fff] rounded-md px-4 py-2 text-2xl uppercase block mx-auto w-fit font-[Inter] transition-colors hover:bg-main cursor-pointer" id="btn-popup-experiencia"><i class="fa-solid fa-image text-[#fff] pr-2" > </i>  Ver Galería</a>
 </div>
+
+<PopupGallery  data={gallery} name="experiencia"/>
