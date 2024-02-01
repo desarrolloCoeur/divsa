@@ -1,7 +1,7 @@
 ---
 title: 'Tzicuri El Provenir, Un coto Privado en Bahía de Banderas '
 pubDate : 2023-12-18
-description : 'Vive en la experiencia en Tzicuri, un coto privado de 50 viviendas en el municipio de San José del Valle en Bahía de Banderas de alta plusvalía.'
+description : 'Vive en la experiencia en Tzicuri, un coto privado de 50 viviendas en el municipio de San José del Valle en Bahía de Banderas de alta plusvalía. Un diseño que alberga 50 elegantes viviendas enclavadas en el corazón de Bahía de Banderas, 800 de florecientes áreas v'
 author: "DivsaPV"
 image: {url: "/tzicuri-blog.webp", alt: "¡Bienvenidos a Tatei, tu refugio de lujo en la hermosa zona dorada de Bucerías, Nayarit!"}
 tags: ["tzicuri","nayarit","bahia-de-banderas",]

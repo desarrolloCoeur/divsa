@@ -1,48 +1,51 @@
 ---
 const data = [
-    {title : "Tatei",
-    href : "#",
-    bgImg : "/tatei.jpg",
-    gallery : []
+    { title: "Tatei", href: "https://tateiocean.mx/", bgImg: "/tatei.jpg", gallery: [] },
+    { title: "Tzicuri", href: "https://grupodivsa.mx/tzicuri/", bgImg: "/tzicuri-main.webp", gallery: [] },
+    { title: "Aruma", href: "", bgImg: "/aruma-residencial.jpg", gallery: [] },
+    {
+        title: "Parque Industrrial",
+        href: "",
+        bgImg: "/avant.jpg",
+        gallery: [],
     },
-    {title : "Tzicuri",
-    href : "#",
-    bgImg : "/tzicuri-main.webp",
-    gallery : []
-    },
-    {title : "Aruma",
-    href : "#",
-    bgImg : "/aruma-residencial.jpg",
-    gallery : []
-    },
-    {title : "Marea",
-    href : "#",
-    bgImg : "/tzicuri.jpge",
-    gallery : []
-    },
-    {title : "Parque Industrrial",
-    href : "#",
-    bgImg : "/tzicuri.jpge",
-    gallery : []
-    },
-]
+];
 ---
+
 <div class="px-5">
     <div class="max-w-7xl mx-auto mt-16">
-        <h2 class="pb-5">Proyectos en<span class="text-accent"> proceso</span></h2>
-        <div class="swiper mySwiper4">
+        <h2 class="mb-10 text-center">
+            Proyectos en<span class="text-accent"> proceso</span>
+        </h2>
+        <div
+            class="swiper mySwiper4"
+            style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+        >
             <div class="swiper-wrapper">
-                {data.map((data) => (
-                    <div class="swiper-slide border-[1px] border-accent rounded-md" >
-                        <img class="w-full object-cover h-[20rem] object-center rounded-tl-md rounded-tr-md" src={data.bgImg} alt={data.title}>
-                        <div class="flex flex-col gap-4 p-5">
-                            <h3 class="z-10 text-center">{data.title}</h3>
-                            <button class="bg-main">Ver más</button>
-                            <button href={data.href} class="">Página web</button>
+                {
+                    data.map((data) => (
+                        <div class="swiper-slide border-[1px] border-accent rounded-md h-auto">
+                            <img
+                                class="w-full object-cover h-[20rem] object-center rounded-tl-md rounded-tr-md"
+                                src={data.bgImg}
+                                alt={data.title}
+                            />
+                            <div class="flex flex-col gap-4 p-5">
+                                <h3 class="z-10 text-center">{data.title}</h3>
+                                <a href="#" class="btn-s uppercase text-center text-2xl">Ver más</a>
+                                {data.href && <a href={data.href} target="_blank" class="btn uppercase text-center text-2xl">Página web</a>}
+                            </div>
                         </div>
-                    </div>
-                ))}
+
+                    ))
+                }
             </div>
-        </div>                   
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>        
     </div>
 </div>
+
+
+
+

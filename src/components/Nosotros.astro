@@ -20,7 +20,7 @@ const icon = [{
 const partners = [
     {
         title: "Profesionales de la construcción",
-        p : "Nuestro equipo de albañiles profesionales está dedicado a convertir tus ideas en sólidas estructuras.Creamos espacios que superan tus expectativas.",
+        p : "Nuestro equipo de profesionales está dedicado a convertir tus ideas en sólidas estructuras.Creamos espacios que superan tus expectativas.",
         img: "/constructor.jpg",
         logo: "/mezcla-cajon-y-cuchara-blanco.png",
         from: "2021",
@@ -38,15 +38,15 @@ const partners = [
 ---
 <div class=" pt-16 px-5" id="nosotros">
     <div class="flex max-w-7xl mx-auto gap-10 flex-col md:flex-row"> 
-        <div class="w-full md:w-1/2">
-            <h2 class="text-3xl">Acerca de <span class="text-accent">NOSOTROS</h2>
-            <p class="mt-5">
+        <div class="w-full md:w-1/2 ">
+            <h2 class="text-3xl text-center md:text-left">Acerca de <span class="text-accent">NOSOTROS</h2>
+            <p class="mt-5 text-center md:text-justify">
                 Somos un grupo de empresas enfocadas en el sector inmobiliario con más de 10 años de 
                 experiencia, con tres ejes principales; Desarrollo Inmobiliario, Construcción y Dirección de 
                 Proyectos. Con compromiso, calidad e innovación, transformamos ideas en realidades 
                 arquitectónicas.
             </p>
-            <button class="mt-5">CONTACTAR AHORA!</button>
+            <a class="btn text-4xl uppercase mx-auto block w-fit md:mx-0" href="#contacto">Contactar Ahora</a>
             
         </div>
         <div class="w-full md:w-1/2">
@@ -65,11 +65,11 @@ const partners = [
     </div>
 </div>
 
-<div class="max-w-7xl mx-auto mt-10 text-2xl">
+<div class="max-w-7xl mx-auto mt-10 text-2xl" id="contadores">
     <div class=" flex items-center justify-center flex-col md:flex-row">
-        <div class="w-full md:w-1/3  bg-main h-full   text-center"> <p class="text-[#fff] p-20 flex flex-col gap-7"><span class="text-[75px]">2</span>Proyectos <br>Desarrollados</p></div>
-        <div class="w-full md:w-1/3  bg-[#14517a] h-full   text-center"> <p class="text-[#fff] p-20 flex flex-col gap-7"><span class="text-[75px]">20</span>Proyectos <br>Construidos</p></div>
-        <div class="w-full md:w-1/3  bg-[#1a6ba0] h-full   text-center"> <p class="text-[#fff] p-20 flex flex-col gap-7"><span class="text-[75px]">5</span>Proyectos <br>Dirigidos</p></div>
+        <div class="w-full md:w-1/3  bg-main h-full   text-center"> <p class="text-[#fff] p-20 flex flex-col gap-7"><span class="text-[75px] num" data-val="2">0</span>Proyectos <br>Desarrollados</p></div>
+        <div class="w-full md:w-1/3  bg-[#14517a] h-full   text-center"> <p class="text-[#fff] p-20 flex flex-col gap-7"><span class="text-[75px] num" data-val="20">00</span>Proyectos <br>Construidos</p></div>
+        <div class="w-full md:w-1/3  bg-[#1a6ba0] h-full   text-center"> <p class="text-[#fff] p-20 flex flex-col gap-7"><span class="text-[75px] num" data-val="5">0</span>Proyectos <br>Dirigidos</p></div>
 
     </div>
 </div>
@@ -84,7 +84,7 @@ const partners = [
                             <img class="w-40 mx-auto z-10" src={p.logo} >
                             <h3 class="text-center z-10 text-[#fff] mt-4">{p.title}</h3>
                         </div>
-                        <p class={`text-[#fff] z-10 text-center mt-2 transition-all ${p.class}-p`}>{p.p}</p>
+                        <p class={`text-[#fff] z-10 text-center mt-2 transition-all text-lg ${p.class}-p`}>{p.p}</p>
                         <p class="text-[#fff] z-10 text-center mt-5 text-lg">Desde: {p.from}</p>
                     </div>
                     <div class="absolute right-0 top-0 left-0 bottom-0 bg-gradient"></div>
@@ -93,15 +93,31 @@ const partners = [
         </div>
         <div class=" lg:hidden">
             {partners.map((p) => (
-                <div class="mb-5">
-                    <div class={`h-[32rem] w-full lg:w-1/2 bg-cover relative aspect-square  px-14`} style={`background-image: url(${p.img})`}>
-                    <div class="flex flex-col h-full justify-end pb-8 overflow-hidden">
-                        <div class={`z-10 `}>
-                            <img class="w-28 mx-auto z-10" src={p.logo} >
-                            <h3 class="text-center z-10 text-[#fff] mt-4 text-xl">{p.title}</h3>
+                <div class="mb-5 relative">
+                    <div class={`h-[32rem] w-full lg:w-1/2 bg-cover relative aspect-square px-14 bg-right flex flex-col justify-end`} style={`background-image: url(${p.img})`}>
+                    <div class="">
+
+                        <div
+                            style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+                            class="swiper mySwiper2"
+                        >
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide flex h-auto items-center justify-center w-full">
+                                    <div class={`z-10 `}>
+                                        <img class="w-28 mx-auto z-10" src={p.logo} >
+                                        <h3 class="text-center z-10 text-[#fff] mt-4 text-xl">{p.title}</h3>
+                                        <p class="text-[#fff] z-10 text-center mt-5 text-sm">Desde: {p.from}</p>
+
+                                    </div>
+                                </div>
+                                <div class="swiper-slide flex h-auto items-center justify-center w-full">
+                                    <p class={`text-[#fff] z-10 text-center mt-2 transition-all text-lg`}>{p.p}</p>
+                                </div>
+
+                            </div>
+                            <div class="swiper-button-next top-[50px]"></div>
+                            <div class="swiper-button-prev top-[50px]"></div>
                         </div>
-                        <p class={`text-[#fff] z-10 text-center mt-2 transition-all text-lg`}>{p.p}</p>
-                        <p class="text-[#fff] z-10 text-center mt-5 text-sm">Desde: {p.from}</p>
                     </div>
                     <div class="absolute right-0 top-0 left-0 bottom-0 bg-gradient"></div>
                     </div>

@@ -15,9 +15,8 @@ const allPosts = await getCollection("posts")
         {
             allPosts.map((post) => { 
                 return(
-                <div class="swiper-slide">
-                    
-                <BlogPost post={post}/>
+                <div class="swiper-slide border-[1px] border-accent rounded-md h-auto">
+                    <BlogPost post={post}/>
                 </div>
 
             ) })

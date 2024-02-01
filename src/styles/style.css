@@ -36,12 +36,13 @@ h1,h2,h3,h4,h5{
 }
 
 .mezcla-up{
-    transform: translateY(140px);
+    transform: translateY(130px);
 }
 
 .dp-up{
-    transform: translateY(140px);
+    transform: translateY(130px);
 }
+
 
 
 @layer base {
@@ -63,5 +64,11 @@ h1,h2,h3,h4,h5{
 }
 
 @layer utilities {
+    .btn{
+        @apply bg-accent text-[#fff] rounded-md font-[Inter] px-7 py-2 text-lg transition-all hover:bg-main 
+    }
 
+    .btn-s{
+        @apply bg-main text-[#fff] rounded-md font-[Inter] px-7 py-2 text-lg transition-all hover:bg-accent 
+    }
 }
