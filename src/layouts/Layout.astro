@@ -1,13 +1,14 @@
 ---
 interface Props {
 	title: string;
+	description : string;
 }
 
 const { title } = Astro.props;
+const { description } = Astro.props;
 
 import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
-import PopupGallery from '../components/PopupGallery.astro';
 import WhatsApp from '../components/WhatsApp.astro';
 import '../styles/style.css'
 ---
@@ -19,25 +20,22 @@ import '../styles/style.css'
 		<title>{title}</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="icon" type="image/svg+xml" href="images/Tzicuri-logo-_vector.png" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
 		<script src="https://kit.fontawesome.com/3cf3afd2bb.js" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-		<!-- Primary Meta Tags -->
-		<title>Tzicuri el Porvenir | Coto Privado en Bahía de Banderas | Viviendas con Amenidades</title>
-		<meta name="title" content="Tzicuri el Porvenir | Coto Privado en Bahía de Banderas | Viviendas con Amenidades" />
-		<meta name="description" content="Descubre Tzicuri el Porvenir, un exclusivo coto privado en el municipio de San José del Valle, Bahía de Banderas. Nuestras 50 viviendas ofrecen un estilo de vida incomparable con amenidades que incluyen Casa Club, Alberca y Seguridad las 24 horas. Experimenta la armonía con más de 800 m² de áreas verdes que respetan la belleza natural de Bahía de Banderas. ¡Vive la vida de tus sueños en Tzicuri!" />
+		<meta name="title" content={title} />
+		<meta name="description" content={description} />
 
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
-		<meta property="og:title" content="Tzicuri el Porvenir | Coto Privado en Bahía de Banderas | Viviendas con Amenidades"/>
-		<meta property="og:description" content="Descubre Tzicuri el Porvenir, un exclusivo coto privado en el municipio de San José del Valle, Bahía de Banderas. Nuestras 50 viviendas ofrecen un estilo de vida incomparable con amenidades que incluyen Casa Club, Alberca y Seguridad las 24 horas. Experimenta la armonía con más de 800 m² de áreas verdes que respetan la belleza natural de Bahía de Banderas. ¡Vive la vida de tus sueños en Tzicuri!" />
+		<meta property="og:title" content={title}/>
+		<meta property="og:description" content={description} />
 		<meta property="og:image" content="images/Tzicuri-logo-_vector.png" />
 
 		<!-- Twitter -->
 
-		<meta property="twitter:title" content="Tzicuri el Porvenir | Coto Privado en Bahía de Banderas | Viviendas con Amenidades" />
-		<meta property="twitter:description" content="Descubre Tzicuri el Porvenir, un exclusivo coto privado en el municipio de San José del Valle, Bahía de Banderas. Nuestras 50 viviendas ofrecen un estilo de vida incomparable con amenidades que incluyen Casa Club, Alberca y Seguridad las 24 horas. Experimenta la armonía con más de 800 m² de áreas verdes que respetan la belleza natural de Bahía de Banderas. ¡Vive la vida de tus sueños en Tzicuri!" />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
 		<meta property="twitter:image" content="images/Tzicuri-logo-_vector.png" />
 	</head>
 

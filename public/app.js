@@ -185,15 +185,14 @@ galleryes.map((g) => {
 
 
 //Contadores
-
-function isElementInViewport(el) {
+function isElementPartiallyInViewport(el, percentage = 50) {
   const rect = el.getBoundingClientRect();
-  return (
-    rect.top >= 0 &&
-    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.left >= 0 &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-  );
+  const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+  const height = Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0);
+  const elementVisiblePercentage = (height / el.clientHeight) * 100;
+
+  return elementVisiblePercentage >= percentage;
 }
 
 function activateCounter() {
@@ -215,15 +214,21 @@ function activateCounter() {
   });
 }
 
-function handleScroll() {
-  const contadoresSection = document.getElementById("contadores");
+let animationFrameId;
 
-  if (isElementInViewport(contadoresSection)) {
-    activateCounter();
-    window.removeEventListener("scroll", handleScroll);
-  }
+function handleScroll() {
+  cancelAnimationFrame(animationFrameId);
+
+  animationFrameId = requestAnimationFrame(() => {
+    const contadoresSection = document.getElementById("contadores");
+
+    if (isElementPartiallyInViewport(contadoresSection)) {
+      activateCounter();
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    }
+  });
 }
 
 window.addEventListener("scroll", handleScroll);
-
 window.addEventListener("resize", handleScroll);
